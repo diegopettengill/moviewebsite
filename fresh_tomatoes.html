@@ -1,79 +1,23 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fresh Tomatoes!</title>
+    <title>Trailer Monkey</title>
+
+    <meta name="description" content="Your favorite movie trailers website">
+    <meta name="keywords" content="trailer, trailers, movie trailers, oscar 2017, reviews">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <style type="text/css" media="screen">
-        body {
-            padding-top: 80px;
-        }
-        #trailer .modal-dialog {
-            margin-top: 200px;
-            width: 640px;
-            height: 480px;
-        }
-        .hanging-close {
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            z-index: 9001;
-        }
-        #trailer-video {
-            width: 100%;
-            height: 100%;
-        }
-        .movie-tile {
-            margin-bottom: 20px;
-            padding-top: 20px;
-        }
-        .movie-tile:hover {
-            background-color: #EEE;
-            cursor: pointer;
-        }
-        .scale-media {
-            padding-bottom: 56.25%;
-            position: relative;
-        }
-        .scale-media iframe {
-            border: none;
-            height: 100%;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 0;
-            background-color: white;
-        }
-    </style>
-    <script type="text/javascript" charset="utf-8">
-        // Pause the video when the modal is closed
-        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            // Remove the src so the player itself gets removed, as this is the only
-            // reliable way to ensure the video stops playing in IE
-            $("#trailer-video-container").empty();
-        });
-        // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
-            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
-              'id': 'trailer-video',
-              'type': 'text-html',
-              'src': sourceUrl,
-              'frameborder': 0
-            }));
-        });
-        // Animate in the movies when the page loads
-        $(document).ready(function () {
-          $('.movie-tile').hide().first().show("fast", function showNext() {
-            $(this).next("div").show("fast", showNext);
-          });
-        });
-    </script>
+    <script src="js/scripts.js"></script>
+
 </head>
 
 <!DOCTYPE html>
@@ -93,37 +37,175 @@
     </div>
     
     <!-- Main Page Content -->
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.jpg" class="img-responsive logo" title="Trailer Monkey" />
+            </a>
           </div>
+
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="search" id="search" class="form-control" placeholder="Search a movie by title">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Submit a trailer</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
         </div>
       </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+            <h1 class="section-title">
+                <i class="glyphicon glyphicon-time"></i> Latest Trailers
+            </h1>
+        </div>
+        
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="the fate of the furious" data-trailer-youtube-id="9GvX2uexGkA" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMjMxODI2NDM5Nl5BMl5BanBnXkFtZTgwNjgzOTk1MTI@._V1_SY1000_CR0,0,631,1000_AL_.jpg") no-repeat; background-size: cover;'>
     </div>
-    <div class="container">
-      
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="0pdqf4P9MB8" data-toggle="modal" data-target="#trailer">
-    <img src="http://www.indiewire.com/wp-content/uploads/2016/08/crhirsww8aad6ty.jpg" width="220" height="342">
-    <h2>La La Land</h2>
+    <h1>The Fate of the Furious</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: Soon
+    </span>
+    <span class="category">Action</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="s2-1hz1juBI" data-toggle="modal" data-target="#trailer">
-    <img src="http://www.hacksawridge.movie/img/posters/poster01.jpg" width="220" height="342">
-    <h2>Hacksaw Ridge</h2>
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="the lost city of z" data-trailer-youtube-id="iaH2L4vidi4" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMjQzNTk3MTkyNF5BMl5BanBnXkFtZTgwMDA2MDQzMTI@._V1_SY1000_CR0,0,674,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>The Lost City of Z</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: Soon
+    </span>
+    <span class="category">Adventure</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="9NJj12tJzqc" data-toggle="modal" data-target="#trailer">
-    <img src="https://pbs.twimg.com/media/C6LCIF3U8AAgHT0.jpg" width="220" height="342">
-    <h2>Moonlight</h2>
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="rough night" data-trailer-youtube-id="QPGF0Lt4RU8" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwNDUzMzEwMV5BMl5BanBnXkFtZTgwOTQ3MDg2MTI@._V1_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Rough Night</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: Soon
+    </span>
+    <span class="category">Comedy</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="s2-1hz1juBI" data-toggle="modal" data-target="#trailer">
-    <img src="https://observatoriodocinema.bol.uol.com.br/wp-content/uploads/2016/11/logan-1.jpg" width="220" height="342">
-    <h2>Logan</h2>
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="atomic blonde" data-trailer-youtube-id="syc4IGbyVmc" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMjM5NDIyMzkyNl5BMl5BanBnXkFtZTgwODIwMDk1MTI@._V1_SY1000_CR0,0,631,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Atomic Blonde</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: Soon
+    </span>
+    <span class="category">Thriller</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
 </div>
 
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="geostorm" data-trailer-youtube-id="C2mk6qPw1Fc" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMTg5MjEyNzA4N15BMl5BanBnXkFtZTgwODI3OTc2MTI@._V1_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Geostorm</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: Soon
+    </span>
+    <span class="category">Sci-Fi</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="kong: skull island" data-trailer-youtube-id="44LdLqgOpjo" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwMzI5ODEwNF5BMl5BanBnXkFtZTgwNjAzNjI2MDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Kong: Skull Island</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: 7.5
+    </span>
+    <span class="category">Adventure</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+
+        <div class="col-xs-12">
+            <h1 class="section-title secondary">
+                Oscar 2017 Nominations
+            </h1>
+        </div>
+        
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="la la land" data-trailer-youtube-id="0pdqf4P9MB8" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMjRhYTE0NDMtMzY1OC00NjI2LTkyMDEtMDljMDlhZjdlMTQ3L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,694,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>La La Land</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: 8.4
+    </span>
+    <span class="category">Musical</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="hacksaw ridge" data-trailer-youtube-id="s2-1hz1juBI" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMTY2NzM1ODYxMV5BMl5BanBnXkFtZTgwNDQxNjc5OTE@._V1_SY1000_CR0,0,648,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Hacksaw Ridge</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: 8.6
+    </span>
+    <span class="category">Drama</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="moonlight" data-trailer-youtube-id="9NJj12tJzqc" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://pbs.twimg.com/media/C6LCIF3U8AAgHT0.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Moonlight</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: 8.1
+    </span>
+    <span class="category">Drama</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="fences" data-trailer-youtube-id="4IYt8A2vu7Y" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BOTg0Nzc1NjA0MV5BMl5BanBnXkFtZTgwNTcyNDQ0MDI@._V1_SY1000_CR0,0,639,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Fences</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: 7.4
+    </span>
+    <span class="category">Drama</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="hell or high water" data-trailer-youtube-id="JQoqsKoJVDw" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMTg4NDA1OTA5NF5BMl5BanBnXkFtZTgwMDQ2MDM5ODE@._V1_SY1000_CR0,0,674,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Hell or High Water</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: 7.7
+    </span>
+    <span class="category">Action</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 movie-tile text-center" data-title="lion" data-trailer-youtube-id="-RNI9o06vqo" data-toggle="modal" data-target="#trailer">
+    <div class="poster" style='background: url("https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NjkzNjg2MF5BMl5BanBnXkFtZTgwMDkyMzgzMDI@._V1_SY1000_CR0,0,681,1000_AL_.jpg") no-repeat; background-size: cover;'>
+    </div>
+    <h1>Lion</h1>
+    <span class="rating">
+        <i class="glyphicon glyphicon-star-empty"></i> Rating: 8.1
+    </span>
+    <span class="category">Drama</span>
+    <img class="icon-play" src="img/play_icon.png" title="Click to view the trailer!" alt="Click to view the trailer!" />
+</div>
+
+      </div>
     </div>
   </body>
 </html>
