@@ -18,7 +18,6 @@ class Movie:
         self.category = category
         self.section = section
 
-    """ Show the movie trailer """
-
     def show_trailer(self):
+        """ Show the movie trailer """
         webbrowser.open(self.trailer_youtube_url)

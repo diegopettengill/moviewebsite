@@ -104,15 +104,25 @@ movie_tile_content = '''
 
 # created the latest section movies
 def create_movie_tiles_content(movies):
+    """
+    Behaviour: Generates the html for the movies section replacing the variables
+    Input: Movies array
+    Output: Generated HTML
+    :param movies:
+    :return:
+    """
     # The HTML content for this section of the page
     content = ''
     for movie in movies:
 
         if movie.section == "latest":
             # Extract the youtube ID from the url
-            youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-            youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-            trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None
+            youtube_id_match = re.search(r'(?<=v=)[^&#]+',
+                                         movie.trailer_youtube_url)
+            youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+',
+                                                             movie.trailer_youtube_url)
+            trailer_youtube_id = youtube_id_match.group(
+                0) if youtube_id_match else None
 
             # Append the tile for the movie with its content filled in
             content += movie_tile_content.format(
@@ -126,17 +136,26 @@ def create_movie_tiles_content(movies):
     return content
 
 
-# created the latest section movies
 def create_movie_tiles_content_oscars(movies):
+    """
+    Behaviour: Generates the html replacing the variables
+    Input: Movies array
+    Output: Generated HTML
+    :param movies:
+    :return:
+    """
     # The HTML content for this section of the page
     content = ''
     for movie in movies:
 
         if movie.section == "oscar":
             # Extract the youtube ID from the url
-            youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-            youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-            trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None
+            youtube_id_match = re.search(r'(?<=v=)[^&#]+',
+                                         movie.trailer_youtube_url)
+            youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+',
+                                                             movie.trailer_youtube_url)
+            trailer_youtube_id = youtube_id_match.group(
+                0) if youtube_id_match else None
 
             # Append the tile for the movie with its content filled in
             content += movie_tile_content.format(
@@ -151,12 +170,20 @@ def create_movie_tiles_content_oscars(movies):
 
 
 def open_movies_page(movies):
+    """
+    Behaviour: Write the content to a HTML file
+    Input: Movies array
+    Output: Generated HTML file
+    :param movies:
+    :return:
+    """
     # Create or overwrite the output file
     output_file = open('index.html', 'w')
 
     # Replace the placeholder for the movie tiles with the actual dynamically generated content
-    rendered_content = main_page_content.format(movie_tiles=create_movie_tiles_content(movies),
-                                                movie_tiles_oscars=create_movie_tiles_content_oscars(movies))
+    rendered_content = main_page_content.format(
+        movie_tiles=create_movie_tiles_content(movies),
+        movie_tiles_oscars=create_movie_tiles_content_oscars(movies))
 
     # Output the file
     output_file.write(main_page_head + rendered_content)
