@@ -20,8 +20,7 @@ main_page_head = '''
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap
-    .min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
 
 </head>
