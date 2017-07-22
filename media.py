@@ -2,6 +2,13 @@ import webbrowser
 
 
 class Movie:
+    """
+    Behaviour: Initiates a M<ovie object
+    Input: Movie properties
+    Output: Movie Object
+    :param movies:
+    :return:
+    """
     def __init__(self,
                  movie_title,
                  movie_storyline,
@@ -19,5 +26,11 @@ class Movie:
         self.section = section
 
     def show_trailer(self):
-        """ Show the movie trailer """
+        """
+        Behaviour: Show the movie trailer
+        Input:Movie Object
+        Output: Movie trailer url
+        :param self:
+        :return:
+        """
         webbrowser.open(self.trailer_youtube_url)
